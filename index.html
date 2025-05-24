@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frenzy's Addons</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-image: url(https://i.imgur.com/yDkVWRP.jpeg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+    }
+
+    header {
+      text-align: center;
+      padding: 10px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px;
+    }
+
+    nav button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      background-color: #1f1f1f;
+      color: white;
+      cursor: pointer;
+    }
+
+    .section {
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+      color: white;
+      text-align: center;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .btn-download {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #202020;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.5);
+      margin-top: 40px;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+      }
+      nav button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://i.imgur.com/8hVcWzs.png" alt="titulo de la pagina" style="height: 100px;">
+  </header>
+
+  <nav>
+    <button onclick="showSection('home')">Home</button>
+    <button onclick="showSection('addons')">Addons</button>
+    <button onclick="showSection('discord')">Discord</button>
+  </nav>
+
+  <main>
+    <div id="home" class="section" style="display: block;">
+<h1>Home</h1>
+      <h4>On this website, you can see all the add-ons that FrenzyStudiosYT includes!</h4>
+      <h4>Like Slendytubbies Survival, ???, and more.</h4>
+      <img src="https://i.imgur.com/12CpEll.png" alt="frenzy logo" />
+    </div>
+
+    <div id="addons" class="section" style="display: none;">
+      <h2>ADDONS</h2>
+      <div class="addon-block">
+        <img src="https://i.imgur.com/LGcQlC8.jpeg" alt="Addon Minecraft" />
+        <h3>Slendytubbies Survival V5</h3>
+        <p>is an addon for Slendytubbies made in Minecraft Pe.</p>
+        <a href="https://www.mediafire.com/file/79gwhvg3cz1r0md/%C2%A7fSlendyTubbies+%C2%A74Survival%C2%A7dV5_1747122810965.mcaddon/file" class="btn-download">Download Now!</a>
+       <button class="btn-download" onclick="alert('Is Not Finished!')">Website</button>
+      </div>
+
+      <div class="addon-block">
+        <img src="https://i.imgur.com/7jWf4oC.png" alt="Addon Minecraft 2" />
+        <h3>???</h3>
+        <p>is an addon for --- made in Minecraft Pe.</p>
+        <button class="btn-download" onclick="alert('Is Not Finished!')">Is Not Finished</button>
+      </div>
+    </div>
+
+    <div id="discord" class="section" style="display: none;">
+      <h2>Discord Servers</h2>
+      <div class="addon-block">
+        <img src="https://i.imgur.com/MiDoQrd.jpeg" alt="Addon Minecraft" />
+        <h3>Slendytubbies Survival Server</h3>
+        <p>Official Server of Slendytubbies Survival</p>
+        <a href="https://discord.gg/WJjGtKZMNw" class="btn-download">Join Now!</a>
+      </div>
+
+      <div class="discord-block">
+        <img src="https://i.imgur.com/7jWf4oC.png" alt="Addon Minecraft 2" />
+        <h3>??? Server</h3>
+        <button class="btn-download" onclick="alert('Is Not Found')">Is Not Found</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Addon Creator - FrenzyStudiosYT</p>
+  </footer>
+
+  <script>
+    function showSection(sectionId) {
+  // Oculta todas las secciones
+  const sections = document.querySelectorAll('.section');
+  sections.forEach((section) => {
+    section.style.display = 'none';
+  });
+
+  // Muestra la sección seleccionada
+  const selectedSection = document.getElementById(sectionId);
+  if (selectedSection) {
+    selectedSection.style.display = 'block';
+  }
+}
+  </script>
+
+</body>
+</html>
