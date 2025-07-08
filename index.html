@@ -78,6 +78,18 @@
         width: 100%;
       }
     }
+.fancy-button {
+  background-color: black;
+  color: white;
+  border: 2px solid white;
+  padding: 10px 20px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.fancy-button:hover {
+  background-color: white;
+  color: black;
+}
   </style>
 </head>
 <body>
@@ -86,9 +98,9 @@
   </header>
 
   <nav>
-    <button onclick="showSection('home')">Home</button>
-    <button onclick="showSection('addons')">Addons</button>
-    <button onclick="showSection('discord')">Discord</button>
+    <button class="fancy-button" onclick="showSection('home')">Home</button>
+    <button class="fancy-button" onclick="showSection('addons')">Addons</button>
+    <button class="fancy-button" onclick="showSection('discord')">Discord</button>
   </nav>
 
   <main>
