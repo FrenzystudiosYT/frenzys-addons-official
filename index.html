@@ -90,17 +90,70 @@
   background-color: white;
   color: black;
 }
+  /* Aquí va todo el CSS para el loader */
+  #loader {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: black;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    overflow: hidden;
+  }
+
+  #progress-bar-container {
+    width: 80%;
+    height: 20px;
+    background: #222;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px #0ff;
+  }
+
+  #progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #0ff, #00f);
+    border-radius: 10px;
+    transition: width 0.3s ease;
+  }
+
+  #content {
+    display: none;
+  }
+
+  body.loading {
+    overflow: hidden;
+    height: 100vh;
+  }
   </style>
 </head>
 <body>
+<body class="loading">
+  <div id="loader">
+    <div id="progress-bar-container">
+      <div id="progress-bar"></div>
+    </div>
+    <div id="loader-text"> DOWNLOAD WEB...</div>
+  </div>
+
+  <div id="content">
+    <!-- Aquí va TODO tu contenido real -->
+  </div>
+</body>
   <header>
     <img src="https://i.imgur.com/8hVcWzs.png" alt="titulo de la pagina" style="height: 100px;">
   </header>
 
   <nav>
-    <button class="fancy-button" onclick="showSection('home')">Home</button>
-    <button class="fancy-button" onclick="showSection('addons')">Addons</button>
-    <button class="fancy-button" onclick="showSection('discord')">Discord</button>
+    <button class="fancy-button" onclick="showSection('home')">⌂ Home ⌂ </button>
+    <button class="fancy-button" onclick="showSection('addons')"> ✚ Addons ✚</button>
+    <button class="fancy-button" onclick="showSection('discord')">⧉ Discord ⧉</button>
   </nav>
 
   <main>
@@ -154,6 +207,44 @@
   <footer>
     <p>© 2025 Addon Creator - FrenzyStudiosYT</p>
   </footer>
+<script>
+
+  const progressBar = document.getElementById('progress-bar');
+  const loader = document.getElementById('loader');
+  const content = document.getElementById('content');
+  const loaderText = document.getElementById('loader-text'); // IMPORTANTE
+  const body = document.body;
+
+  let progress = 0;
+
+  const interval = setInterval(() => {
+    progress += 1.5;
+    if (progress > 100) progress = 100;
+    progressBar.style.width = progress + '%';
+
+    // CAMBIO DE TEXTO SEGÚN PROGRESO
+    if (progress < 40) {
+      loaderText.textContent = 'DOWNLOAD WEB...';
+    } else if (progress < 80) {
+      loaderText.textContent = 'DOWNLOAD ARCHIVES...';
+    } else if (progress < 98) {
+      loaderText.textContent = 'PREPARING EVERYTHING...';
+    } else {
+      loaderText.textContent = 'READY';
+    }
+
+    if (progress === 100) {
+      clearInterval(interval);
+      loader.classList.add('fade-out');
+      setTimeout(() => {
+        loader.style.display = 'none';
+        content.style.display = 'block';
+        body.classList.remove('loading');
+      }, 1000);
+    }
+  }, 50);
+</script>
+
 
   <script>
     function showSection(sectionId) {
