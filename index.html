@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -131,6 +132,16 @@
     overflow: hidden;
     height: 100vh;
   }
+
+  
+  #admin-panel {
+  background: #1a1a1a;
+  padding: 1.5rem;
+  margin-top: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #000;
+  color: white;
+  }
   </style>
 </head>
 <body>
@@ -154,6 +165,9 @@
     <button class="fancy-button" onclick="showSection('home')">⌂ Home ⌂ </button>
     <button class="fancy-button" onclick="showSection('addons')"> ✚ Addons ✚</button>
     <button class="fancy-button" onclick="showSection('discord')">⧉ Discord ⧉</button>
+    <!-- Botón secreto -->
+    <button id="dashboardButton" class="fancy-button" style="display: none;" onclick="showSection('dashboard')">☍ Dashboard ☍</button>
+   
   </nav>
 
   <main>
@@ -175,6 +189,7 @@
         <img src="https://i.imgur.com/LGcQlC8.jpeg" alt="Addon Minecraft" />
         <h3>Slendytubbies Survival V5.5</h3>
         <p>is an addon for Slendytubbies made in Minecraft Pe. A new update is here!</p>
+        <span style="color: #fffb00; font-weight: bold; font-size: 24px;"> ✵ Featured ✵</span></p>
         <a href="https://www.mediafire.com/file/g5v3m1m6io773x5/§4Slendy§ftubbies+§dV5.5_1751867612231.mcaddon/file" class="btn-download"> ⬆ Download Now! ⬆</a>
        <button class="btn-download" onclick="alert('Is Not Finished!')">Website</button>
 
@@ -191,27 +206,106 @@
       <h3> NEW ADDON COMING SOON...</h3>
     </div>
 
-    <div id="discord" class="section" style="display: none;">
-      <h2>⬇ Discord Servers ⬇</h2>
-      <div class="addon-block">
-        <img src="https://i.imgur.com/MiDoQrd.jpeg" alt="Addon Minecraft" />
-        <h3>Slendytubbies Survival Server</h3>
-        <p>Official Server of Slendytubbies Survival</p>
-        <a href="https://discord.gg/WJjGtKZMNw" class="btn-download">Join Now!</a>
-            <h2>▼</h2>
-      </div>
+    <!-- 🔹 SECCIÓN DISCORD -->
+<div id="discord" class="section" style="display: none;">
+  <h2>⬇ Discord Servers ⬇</h2>
 
-      <div class="discord-block">
-        <img src="https://i.imgur.com/7jWf4oC.png" alt="Addon Minecraft 2" />
-        <h3>??? Server</h3>
-        <button class="btn-download" onclick="alert('Is Not Found')">Is Not Found!</button>
-      </div>
-    </div>
+  <div class="addon-block">
+    <img src="https://i.imgur.com/MiDoQrd.jpeg" alt="Addon Minecraft" />
+    <h3>Slendytubbies Survival Server</h3>
+    <p>Official Server of Slendytubbies Survival</p>
+    <p>Servidor: <span style="color: #00aeff; font-weight: bold;">+50 miembros</span></p>
+    <a href="https://discord.gg/WJjGtKZMNw" class="btn-download">Join Now!</a>
+    <h2>▼</h2>
+  </div>
+
+  <div class="discord-block">
+    <img src="https://i.imgur.com/7jWf4oC.png" alt="Addon Minecraft 2" />
+    <h3>??? Server</h3>
+    <button class="btn-download" onclick="alert('Is Not Found')">Is Not Found!</button>
+  </div>
+</div> <!-- ← ESTE cierre era el que te faltaba -->
+
+
+
+<!-- Dashboard normal -->
+<div id="dashboard" class="section" style="display: none;">
+  <h2>☍ Dashboard ☍ - Admin Panel</h2>
+
+  <p><strong>Website Version:</strong> 1.5</p>
+  <p><strong>Last Updated:</strong> July 10, 2025</p>
+  <p><strong>Created by:</strong> FrenzyStudiosYT & XenoX_Xero</p>
+  <p><strong>Managed by:</strong> XenoX_Xero</p>
+  <p><strong>Status:</strong> ✅ Online</p>
+  <p><strong>Active Addons:</strong> 1</p>
+  <p><strong>Server Uptime:</strong> 99.9%</p>
+  <p><strong>Website Language:</strong> English & Spanish</p>
+
+  <hr style="margin: 20px 0; border-color: #ccc;" />
+
+  <p><strong>Upcoming Features:</strong></p>
+  <ul style="text-align: left; max-width: 500px; margin: 0 auto;">
+    <li>🔸 "Addon of the week" (beta)</li>
+    <li>🔸 New Addons </li>
+    <li>🔸 New Things </li>
+    <li>🔸 New Animations </li>
+    <li>🔸 Addon search bar </li>
+    <li>🔸 Opcional background music </li>
+ 
+  </ul>
+
+  <hr style="margin: 20px 0; border-color: #ccc;" />
+
+  <p><strong>Admin Notes 🧠</strong></p>
+  <p>This panel is only visible to the creator and admins. 
+     If you're seeing this, you're either me... or you're hacking 👀</p>
+
+  <p>I'm currently working on improving mobile performance, code optimization, 
+     and building an update manager directly from this panel.</p>
+
+  <p><em>Welcome to the backend of Slendytubbies Survival Web. From here, 
+     I monitor and control everything. Let's keep things running smooth.</em></p>
+</div>
   </main>
+
+<div style="text-align: right; padding: 20px 30px 0 0;">
+  <button id="secretbutton" class="fancy-button" onclick="askForCode('secretDashBoard')">☍</button>
+</div>
 
   <footer>
     <p>© 2025 Addon Creator - FrenzyStudiosYT</p>
   </footer>
+
+<script>
+  const btnShowLogin = document.getElementById('btnShowLogin');
+  const secretDashboard = document.getElementById('secretDashboard');
+  const dashboard = document.getElementById('dashboard');
+  const btnSubmitCode = document.getElementById('btnSubmitCode');
+  const adminCodeInput = document.getElementById('adminCodeInput');
+
+  secretDashboard.style.display = 'none';
+  dashboard.style.display = 'none';
+
+  btnShowLogin.addEventListener('click', () => {
+    btnShowLogin.style.display = 'none';
+    secretDashboard.style.display = 'block';
+    adminCodeInput.focus();
+  });
+
+  btnSubmitCode.addEventListener('click', () => {
+    const code = adminCodeInput.value.trim();
+    if (code === 'frenzyadmin123') {
+      secretDashboard.style.display = 'none';
+      dashboard.style.display = 'block';
+      alert('✅ Access granted!');
+    } else {
+      alert('❌ Incorrect code, try again.');
+      adminCodeInput.value = '';
+      adminCodeInput.focus();
+    }
+  });
+</script>
+
 <script>
 
   const progressBar = document.getElementById('progress-bar');
@@ -266,6 +360,27 @@
   }
 }
   </script>
+<!-- Botón secreto en la esquina -->
 
+<script>
+function askForCode() {
+  const code = prompt("🔐 Enter admin code:");
+  if (code === "frenzyadmin123") {
+    document.getElementById("dashboardButton").style.display = "inline-block";
+    alert("✅ Dashboard unlocked!");
+  } else {
+    alert("❌ Incorrect code.");
+  }
+}
+
+function showSection(id) {
+  // Oculta todas las secciones
+  document.querySelectorAll(".section").forEach(sec => {
+    sec.style.display = "none";
+  });
+  // Muestra la sección que se pide
+  document.getElementById(id).style.display = "block";
+}
+</script>
 </body>
 </html>
