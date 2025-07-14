@@ -1,379 +1,92 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Frenzy's Addons</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ERROR 957</title>
   <style>
     body {
+      background-color: #111;
+      color: #f5f5f5;
+      font-family: 'Courier New', monospace;
+      text-align: center;
+      padding-top: 20%;
+      animation: fadeIn 2s ease-in-out;
       margin: 0;
-      font-family: Arial, sans-serif;
-      background-image: url(https://i.imgur.com/yDkVWRP.jpeg);
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-position: center;
-    }
-
-    header {
-      text-align: center;
-      padding: 10px;
-    }
-
-    nav {
+      height: 100vh;
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
       justify-content: center;
-      gap: 10px;
-      padding: 10px;
+      padding-left: 10px;
+      padding-right: 10px;
     }
-
-    nav button {
-      padding: 10px 20px;
-      font-size: 16px;
-      border: none;
-      border-radius: 10px;
-      background-color: #1f1f1f;
-      color: white;
-      cursor: pointer;
+    h1 {
+      font-size: 10vw;
+      color: #ff3c3c;
+      text-shadow: 1px 1px #000, -1px -1px #0f0;
+      margin: 0;
+      line-height: 1.1;
     }
-
-    .section {
-      padding: 20px;
-      max-width: 800px;
-      margin: auto;
-      color: white;
-      text-align: center;
+    p {
+      font-size: 4vw;
+      color: #ccc;
+      margin-top: 20px;
+      margin-bottom: 40px;
+      line-height: 1.2;
     }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-    }
-
-    .btn-download {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 20px;
-      background-color: #202020;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-    }
-
     footer {
-      text-align: center;
-      padding: 15px;
-      color: white;
-      background-color: rgba(0, 0, 0, 0.5);
-      margin-top: 40px;
+      font-size: 3vw;
+      color: #666;
+      animation: glitch 3s infinite;
+      user-select: none;
     }
-
-    @media (max-width: 600px) {
-      nav {
-        flex-direction: column;
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes glitch {
+      0% {
+        text-shadow:
+          2px 0 red,
+          -2px 0 cyan,
+          0 0 #fff;
       }
-      nav button {
-        width: 100%;
+      20% {
+        text-shadow:
+          -2px 0 red,
+          2px 0 cyan,
+          0 0 #fff;
+      }
+      40% {
+        text-shadow:
+          2px 2px red,
+          -2px -2px cyan,
+          0 0 #fff;
+      }
+      60% {
+        text-shadow:
+          -2px -2px red,
+          2px 2px cyan,
+          0 0 #fff;
+      }
+      80% {
+        text-shadow:
+          2px 0 red,
+          -2px 0 cyan,
+          0 0 #fff;
+      }
+      100% {
+        text-shadow:
+          -2px 0 red,
+          2px 0 cyan,
+          0 0 #fff;
       }
     }
-.fancy-button {
-  background-color: black;
-  color: white;
-  border: 2px solid white;
-  padding: 10px 20px;
-  transition: 0.3s;
-  cursor: pointer;
-}
-.fancy-button:hover {
-  background-color: white;
-  color: black;
-}
-  /* Aquí va todo el CSS para el loader */
-  #loader {
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-color: black;
-    color: white;
-    font-family: 'Arial', sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    overflow: hidden;
-  }
-
-  #progress-bar-container {
-    width: 80%;
-    height: 20px;
-    background: #222;
-    border-radius: 10px;
-    overflow: hidden;
-    margin-bottom: 20px;
-    box-shadow: 0 0 10px #0ff;
-  }
-
-  #progress-bar {
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(90deg, #0ff, #00f);
-    border-radius: 10px;
-    transition: width 0.3s ease;
-  }
-
-  #content {
-    display: none;
-  }
-
-  body.loading {
-    overflow: hidden;
-    height: 100vh;
-  }
-
-  
-  #admin-panel {
-  background: #1a1a1a;
-  padding: 1.5rem;
-  margin-top: 1rem;
-  border-radius: 10px;
-  box-shadow: 0 0 10px #000;
-  color: white;
-  }
   </style>
 </head>
 <body>
-<body class="loading">
-  <div id="loader">
-    <div id="progress-bar-container">
-      <div id="progress-bar"></div>
-    </div>
-    <div id="loader-text"> DOWNLOAD WEB...</div>
-  </div>
-
-  <div id="content">
-    <!-- Aquí va TODO tu contenido real -->
-  </div>
-</body>
-  <header>
-    <img src="https://i.imgur.com/8hVcWzs.png" alt="titulo de la pagina" style="height: 100px;">
-  </header>
-
-  <nav>
-    <button class="fancy-button" onclick="showSection('home')">⌂ Home ⌂ </button>
-    <button class="fancy-button" onclick="showSection('addons')"> ✚ Addons ✚</button>
-    <button class="fancy-button" onclick="showSection('discord')">⧉ Discord ⧉</button>
-    <!-- Botón secreto -->
-    <button id="dashboardButton" class="fancy-button" style="display: none;" onclick="showSection('dashboard')">☍ Dashboard ☍</button>
-   
-  </nav>
-
-  <main>
-    <div id="home" class="section" style="display: block;">
-<h1>⬇ Home ⬇ </h1>
-      <h4>On this website, you can see all the add-ons that FrenzyStudiosYT includes!</h4>
-      <h4>Like Slendytubbies Survival, ???, and more.
-      </h4>
-    <h1> ▼ NEWS ▼</h1>
-     <h4> Now, A New Update for Slendytubbies Survival, try it!</h4>
-      <img src="https://i.imgur.com/12CpEll.png" alt="frenzy logo" />
-    </div>
-
-  
-
-    <div id="addons" class="section" style="display: none;">
-      <h2>⬇ ADDONS ⬇</h2>
-      <div class="addon-block">
-        <img src="https://i.imgur.com/LGcQlC8.jpeg" alt="Addon Minecraft" />
-        <h3>Slendytubbies Survival V5.5</h3>
-        <p>is an addon for Slendytubbies made in Minecraft Pe. A new update is here!</p>
-        <span style="color: #fffb00; font-weight: bold; font-size: 24px;"> ✵ Featured ✵</span></p>
-        <a href="https://www.mediafire.com/file/g5v3m1m6io773x5/§4Slendy§ftubbies+§dV5.5_1751867612231.mcaddon/file" class="btn-download"> ⬆ Download Now! ⬆</a>
-       <button class="btn-download" onclick="alert('Is Not Finished!')">Website</button>
-
-       <h2>▼</h2>
-      </div>
-  
-
-      <div class="addon-block">
-        <img src="https://i.imgur.com/7jWf4oC.png" alt="Addon Minecraft 2" />
-        <h3>???</h3>
-        <p>is an addon for --- made in Minecraft Pe.</p>
-        <button class="btn-download" onclick="alert('Is Not Finished!')">Is Not Finished</button>
-      </div>
-      <h3> NEW ADDON COMING SOON...</h3>
-    </div>
-
-    <!-- 🔹 SECCIÓN DISCORD -->
-<div id="discord" class="section" style="display: none;">
-  <h2>⬇ Discord Servers ⬇</h2>
-
-  <div class="addon-block">
-    <img src="https://i.imgur.com/MiDoQrd.jpeg" alt="Addon Minecraft" />
-    <h3>Slendytubbies Survival Server</h3>
-    <p>Official Server of Slendytubbies Survival</p>
-    <p>Servidor: <span style="color: #00aeff; font-weight: bold;">+50 miembros</span></p>
-    <a href="https://discord.gg/WJjGtKZMNw" class="btn-download">Join Now!</a>
-    <h2>▼</h2>
-  </div>
-
-  <div class="discord-block">
-    <img src="https://i.imgur.com/7jWf4oC.png" alt="Addon Minecraft 2" />
-    <h3>??? Server</h3>
-    <button class="btn-download" onclick="alert('Is Not Found')">Is Not Found!</button>
-  </div>
-</div> <!-- ← ESTE cierre era el que te faltaba -->
-
-
-
-<!-- Dashboard normal -->
-<div id="dashboard" class="section" style="display: none;">
-  <h2>☍ Dashboard ☍ - Admin Panel</h2>
-
-  <p><strong>Website Version:</strong> 1.5</p>
-  <p><strong>Last Updated:</strong> July 10, 2025</p>
-  <p><strong>Created by:</strong> FrenzyStudiosYT & XenoX_Xero</p>
-  <p><strong>Managed by:</strong> XenoX_Xero</p>
-  <p><strong>Status:</strong> ✅ Online</p>
-  <p><strong>Active Addons:</strong> 1</p>
-  <p><strong>Server Uptime:</strong> 99.9%</p>
-  <p><strong>Website Language:</strong> English & Spanish</p>
-
-  <hr style="margin: 20px 0; border-color: #ccc;" />
-
-  <p><strong>Upcoming Features:</strong></p>
-  <ul style="text-align: left; max-width: 500px; margin: 0 auto;">
-    <li>🔸 "Addon of the week" (beta)</li>
-    <li>🔸 New Addons </li>
-    <li>🔸 New Things </li>
-    <li>🔸 New Animations </li>
-    <li>🔸 Addon search bar </li>
-    <li>🔸 Opcional background music </li>
- 
-  </ul>
-
-  <hr style="margin: 20px 0; border-color: #ccc;" />
-
-  <p><strong>Admin Notes 🧠</strong></p>
-  <p>This dashboard provides administrative access to system tools, performance stats, and update tracking for Frenzy's addons web!</p>
-
-</div>
-  </main>
-
-<div style="text-align: right; padding: 20px 30px 0 0;">
-  <button id="secretbutton" class="fancy-button" onclick="askForCode('secretDashBoard')">☍</button>
-</div>
-
-  <footer>
-    <p>© 2025 Addon Creator - FrenzyStudiosYT</p>
-  </footer>
-
-<script>
-  const btnShowLogin = document.getElementById('btnShowLogin');
-  const secretDashboard = document.getElementById('secretDashboard');
-  const dashboard = document.getElementById('dashboard');
-  const btnSubmitCode = document.getElementById('btnSubmitCode');
-  const adminCodeInput = document.getElementById('adminCodeInput');
-
-  secretDashboard.style.display = 'none';
-  dashboard.style.display = 'none';
-
-  btnShowLogin.addEventListener('click', () => {
-    btnShowLogin.style.display = 'none';
-    secretDashboard.style.display = 'block';
-    adminCodeInput.focus();
-  });
-
-  btnSubmitCode.addEventListener('click', () => {
-    const code = adminCodeInput.value.trim();
-    if (code === 'frenzyadmin123') {
-      secretDashboard.style.display = 'none';
-      dashboard.style.display = 'block';
-      alert('✅ Access granted!');
-    } else {
-      alert('❌ Incorrect code, try again.');
-      adminCodeInput.value = '';
-      adminCodeInput.focus();
-    }
-  });
-</script>
-
-<script>
-
-  const progressBar = document.getElementById('progress-bar');
-  const loader = document.getElementById('loader');
-  const content = document.getElementById('content');
-  const loaderText = document.getElementById('loader-text'); // IMPORTANTE
-  const body = document.body;
-
-  let progress = 0;
-
-  const interval = setInterval(() => {
-    progress += 1.5;
-    if (progress > 100) progress = 100;
-    progressBar.style.width = progress + '%';
-
-    // CAMBIO DE TEXTO SEGÚN PROGRESO
-    if (progress < 40) {
-      loaderText.textContent = 'DOWNLOAD WEB...';
-    } else if (progress < 80) {
-      loaderText.textContent = 'DOWNLOAD ARCHIVES...';
-    } else if (progress < 98) {
-      loaderText.textContent = 'PREPARING EVERYTHING...';
-    } else {
-      loaderText.textContent = 'READY';
-    }
-
-    if (progress === 100) {
-      clearInterval(interval);
-      loader.classList.add('fade-out');
-      setTimeout(() => {
-        loader.style.display = 'none';
-        content.style.display = 'block';
-        body.classList.remove('loading');
-      }, 1000);
-    }
-  }, 50);
-</script>
-
-
-  <script>
-    function showSection(sectionId) {
-  // Oculta todas las secciones
-  const sections = document.querySelectorAll('.section');
-  sections.forEach((section) => {
-    section.style.display = 'none';
-  });
-
-  // Muestra la sección seleccionada
-  const selectedSection = document.getElementById(sectionId);
-  if (selectedSection) {
-    selectedSection.style.display = 'block';
-  }
-}
-  </script>
-<!-- Botón secreto en la esquina -->
-
-<script>
-function askForCode() {
-  const code = prompt("🔐 Enter admin code:");
-  if (code === "FSDashboard") {
-    document.getElementById("dashboardButton").style.display = "inline-block";
-    alert("✅ Dashboard unlocked!");
-  } else {
-    alert("❌ Incorrect code.");
-  }
-}
-
-function showSection(id) {
-  // Oculta todas las secciones
-  document.querySelectorAll(".section").forEach(sec => {
-    sec.style.display = "none";
-  });
-  // Muestra la sección que se pide
-  document.getElementById(id).style.display = "block";
-}
-</script>
+  <h1>ERROR 957</h1>
+  <p>No response received.</p>
+  <footer>◇X3n0X◇ - Fr÷n7&St¤D1o$</footer>
 </body>
 </html>
